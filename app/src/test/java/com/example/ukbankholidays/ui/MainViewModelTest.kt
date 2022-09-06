@@ -65,9 +65,11 @@ class MainViewModelTest{
 
 
     @Test
-    fun `Given Room data from response When success Then return all data`()= runBlocking{
-        val holiday = arrayListOf<EventModel>(
-            EventModel(bunting = false, date = "", notes = "Main holiday", title = "Easter Holiday")
+    fun `Given Holiday data from response When success Then return all data`()= runBlocking{
+        val holiday = arrayListOf<HolidayModel>(
+            HolidayModel(englandAndWales = EnglandAndWalesModel("England and Wales", emptyList())
+                , northernIreland = NorthernIrelandModel("Northern Island", emptyList())
+                , scotland = ScotlandModel("Scotland", emptyList()))
         )
 
         Mockito.`when`(repository.getBankHolidays()).thenReturn(HolidayModel(
